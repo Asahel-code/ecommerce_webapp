@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,6EAAI;ADEZ,AAAA,CAAC,CAAA;EACG,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CACzB;;AAED,AAAA,IAAI,CAAA;EACA,KAAK,EAAE,IAAI;EACX,WAAW,ECRL,SAAS,EAAE,UAAU;CDS9B",
+    "sources": [
+        "App.scss",
+        "assets/styles/Variables.scss"
+    ],
+    "names": [],
+    "file": "App.css"
+}

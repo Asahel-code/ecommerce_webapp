@@ -1,0 +1,75 @@
+@import "../../assets/styles/Variables.scss";
+
+/*------------------------
+Navigating styling
+------------------------ */
+header {
+   margin: 20px 0;
+}
+
+.navbar {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
+
+.logo {
+  h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    a{
+      text-decoration: none;
+      color: $primary;
+    }
+    a:hover{
+      color: $secondary;
+    }
+ }
+}
+
+
+.links{
+  ul{
+    display: flex;
+    li {
+      padding: 5px 10px;
+      list-style: none;
+      a{
+        text-decoration: none;
+        color: $dark
+      }
+      a:hover{
+        color: $secondary;
+      }
+   }
+  }
+
+}  
+
+
+.underline {
+   border: 1px solid #000;
+   margin: 10px 0;
+}
+
+.categories-links {
+  ul {
+    margin-left: 6em;
+    display: flex;
+    li {
+      padding-left: 15px;
+      list-style: none;
+      a{
+        text-decoration: none;
+        color: $dark;
+      }
+      a:hover{
+        color: $secondary;
+      }
+   }
+ }
+}
+
+
+
