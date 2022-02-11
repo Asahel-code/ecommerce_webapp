@@ -10,3 +10,29 @@ body{
     width: 100%;
     font-family: $Poppins;
 }
+
+.links{
+    ul{
+      display: flex;
+      li {
+        padding: 5px 10px;
+        list-style: none;
+        .link-item{
+          text-decoration: none;
+          color: $dark
+        }
+        .link-item:hover{
+          color: $primary;
+          border-bottom: 3px solid $primary;
+        }
+        .active{
+          color: $primary;
+          border-bottom: 3px solid $primary;
+        }
+     }
+    }
+  }
+
+
+
+

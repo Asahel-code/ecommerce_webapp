@@ -1,6 +1,7 @@
 import React from 'react';
 import SliderImage from '../components/sliderImage/SliderImage';
 import ProductsCategory from '../components/productCategory/ProductsCategory';
+import AboutProduct from '../components/aboutProduct/AboutProduct';
 
 
 const Home = () => {
@@ -12,7 +13,9 @@ const Home = () => {
       <div>
         <ProductsCategory/>
       </div>
-
+      <div>
+        <AboutProduct/>
+      </div>
     </>
   </div>;
 }

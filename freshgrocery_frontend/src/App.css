@@ -10,4 +10,30 @@ body {
   width: 100%;
   font-family: "Poppins", sans-serif;
 }
+
+.links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.links ul li {
+  padding: 5px 10px;
+  list-style: none;
+}
+
+.links ul li .link-item {
+  text-decoration: none;
+  color: #000;
+}
+
+.links ul li .link-item:hover {
+  color: #2b7216;
+  border-bottom: 3px solid #2b7216;
+}
+
+.links ul li .active {
+  color: #2b7216;
+  border-bottom: 3px solid #2b7216;
+}
 /*# sourceMappingURL=App.css.map */

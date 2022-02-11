@@ -1,7 +1,46 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-const Footer =()=> {
-  return <div></div>;
+import './Footer.css';
+
+const Footer = () => {
+  return <div className="footer">
+    <div className="container py-4">
+      <div className="row">
+        <div className="col-md-12 d-flex justify-content-center align-items-center ">
+          <div>
+            <h3>Follow us on</h3>
+            <div className="footer-links">
+              <ul>
+                <li><Link className="footer-link-item" to="/products"><i className="bi bi-instagram"></i></Link></li>
+                <li><Link className="footer-link-item" to="/login"><i className="bi bi-twitter"></i></Link></li>
+                <li><Link className="footer-link-item" to="/login"><i className="bi bi-facebook"></i></Link></li>
+                <li><Link className="footer-link-item" to="/register"><i className="bi bi-linkedin"></i></Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-12 d-flex justify-content-center align-items-center py-3">
+          <div>
+            <span>P.O. Box 00347, 00310 Nyeri</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div className="copyright-payment">
+      <div className="container py-3">
+        <div className="row">
+          <div className="col-md-6 text-center">
+            <span>&copy; 2022 All copyright reserved, Freshgrocery Ltd</span>
+          </div>
+          <div className="col-md-6 text-center">
+            <span>We accept payment through Mpesa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>;
 }
 
 export default Footer;
