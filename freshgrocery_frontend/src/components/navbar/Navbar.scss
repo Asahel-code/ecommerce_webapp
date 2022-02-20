@@ -28,7 +28,16 @@ header {
  }
 }
 
-
+.logout-btn{
+  padding: 0.5em 1.0em;
+  background: $danger;
+  color: $light;
+  border-radius: 0.5rem !important;
+  border: none;
+}
+.logout-btn:hover{
+  background: $dangerLight;
+}
 
 
 

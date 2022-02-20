@@ -32,4 +32,16 @@ header {
 .logo h1 a:hover {
   color: #00634e;
 }
+
+.logout-btn {
+  padding: 0.5em 1.0em;
+  background: #753900;
+  color: #fff;
+  border-radius: 0.5rem !important;
+  border: none;
+}
+
+.logout-btn:hover {
+  background: #9e5613;
+}
 /*# sourceMappingURL=Navbar.css.map */

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -15,17 +16,22 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('products')->get();
+        $category = Category::all();
+        return response()->json([
+            'status' => 200,
+            'category' => $category,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function allCategory()
     {
-        //
+        
+        $category = Category::all();
+        return response()->json([
+            'status' => 200,
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -36,7 +42,26 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:191',
+            'slug' => 'required|max:191'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages()
+            ]);
+        } else {
+            $category = new Category;
+            $category->name = $request->input('name');
+            $category->slug = $request->input('slug');
+            $category->save();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Category added successfully'
+            ]);
+        }
     }
 
     /**
@@ -58,7 +83,21 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        if($category)
+        {
+            return response()->json([
+                'status' => 200,
+                'category' => $category
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No category Id found'
+            ]);
+        }
     }
 
     /**
@@ -70,7 +109,37 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:191',
+            'slug' => 'required|max:191'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validator->messages()
+            ]);
+        } else {
+            $category = Category::find($id);
+            if($category) 
+            {
+                $category->name = $request->input('name');
+                $category->slug = $request->input('slug');
+                $category->save();
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Category updated successfully'
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Category not found'
+                ]);
+            }
+           
+        }
     }
 
     /**
@@ -81,6 +150,21 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        if($category)
+        {
+            $category->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Category deleted successfully'
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Category not found'
+            ]);
+        }
     }
 }

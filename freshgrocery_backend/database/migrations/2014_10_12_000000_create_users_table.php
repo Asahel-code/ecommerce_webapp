@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('contact_no')->nullable();
             $table->string('delivery_destination')->nullable();
             $table->string('password');
+            $table->tinyInteger('role_as')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

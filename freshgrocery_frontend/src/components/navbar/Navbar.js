@@ -1,14 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from 'axios';
+import swal from 'sweetalert';
 
 import './Navbar.css'
 
 const Navbar = () => {
+
+    //Variable declarations
     const [curLink, setCurLink] = useState("home");
     const [hoverLink, setHoverLink] = useState({
         type: "home",
         style: "active"
     });
+
+    var AuthButtons = ""
+
+    const navigate = useHistory();
+
+
+
+    const onLogout = (e) => {
+        e.preventDefault();
+        axios.get('sanctum/csrf-cookie').then(response => {
+            axios.post(`api/logout`, ).then(res => {
+                if (res.data.status === 200) {
+                    localStorage.removeItem('auth_token');
+                    localStorage.removeItem('auth_name');
+                    swal("Success", res.data.message, "success");
+                    navigate.push("/");
+                }
+                else {
+                  
+                }
+    
+            });
+        });
+    }
+
+   
 
     useEffect(() => {
         setHoverLink(
@@ -20,6 +50,39 @@ const Navbar = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [curLink]);
 
+
+    if (!localStorage.getItem('auth_token')) {
+        AuthButtons = (
+            <ul>
+                <li>
+                    <Link onClick={() => setCurLink("login")}
+                        className={hoverLink.type === "login" ? `${hoverLink.style} link-item` : "link-item"} to="/login">Login
+                    </Link>
+                </li>
+                <li>
+                    <Link onClick={() => setCurLink("signup")}
+                        className={hoverLink.type === "signup" ? `${hoverLink.style} link-item` : "link-item"} to="/register">signup
+                    </Link>
+                </li>
+            </ul>
+        )
+    }
+
+
+    else {
+        AuthButtons = (
+            <ul>
+                <li>
+                    <Link onClick={() => setCurLink("profile")}
+                        className={hoverLink.type === "profile" ? `${hoverLink.style} link-item` : "link-item"} to="/profile">User
+                    </Link>
+                </li>
+                <li>
+                    <button type="button" onClick={onLogout} className="logout-btn">Logout</button>
+                </li>
+            </ul>
+        )
+    }
 
     return <div>
         <header>
@@ -38,7 +101,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link onClick={() => setCurLink("products")}
-                                className={hoverLink.type === "products" ? `${hoverLink.style} link-item` : "link-item"} to="/products">Products
+                                className={hoverLink.type === "products" ? `${hoverLink.style} link-item` : "link-item"} to="/#products">Products
                             </Link>
                         </li>
                         <li>
@@ -46,16 +109,9 @@ const Navbar = () => {
                                 className={hoverLink.type === "about" ? `${hoverLink.style} link-item` : "link-item"} to="/about">About us
                             </Link>
                         </li>
-                        <li>
-                            <Link onClick={() => setCurLink("login")}
-                             className={hoverLink.type === "login" ? `${hoverLink.style} link-item` : "link-item"} to="/login">Login
-                            </Link>
-                        </li>
-                        <li>
-                            <Link onClick={() => setCurLink("signup")}
-                                className={hoverLink.type === "signup" ? `${hoverLink.style} link-item` : "link-item"} to="/register">signup
-                            </Link>
-                        </li>
+
+                        {AuthButtons}
+
                         <li>
                             <Link onClick={() => setCurLink("cart")}
                                 className={hoverLink.type === "cart" ? `${hoverLink.style} link-item` : "link-item"} to="/cart"><i className="bi bi-basket-fill"></i>

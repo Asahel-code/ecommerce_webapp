@@ -11,10 +11,16 @@ class Product extends Model
 
     protected $table = "products";
     
-    protected $fillable = ['name','description','price','image_0','image_1','image_2','image_3','image_4','stock_status','category_id'];
+    protected $fillable = ['name', 'slug','description','original_price','selling_price', 'quantity','status','image', 'category_id'];
 
+    protected $with = ['category'];
     public function category ()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function products ()
+    {
+        return $this->hasMany(Cart::class, 'product_id');
     }
 }

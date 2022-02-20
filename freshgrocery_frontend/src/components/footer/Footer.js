@@ -12,10 +12,10 @@ const Footer = () => {
             <h3>Follow us on</h3>
             <div className="footer-links">
               <ul>
-                <li><Link className="footer-link-item" to="/products"><i className="bi bi-instagram"></i></Link></li>
-                <li><Link className="footer-link-item" to="/login"><i className="bi bi-twitter"></i></Link></li>
-                <li><Link className="footer-link-item" to="/login"><i className="bi bi-facebook"></i></Link></li>
-                <li><Link className="footer-link-item" to="/register"><i className="bi bi-linkedin"></i></Link></li>
+                <li><Link className="footer-link-item" to="/https://www.instagram.com"><i className="bi bi-instagram"></i></Link></li>
+                <li><Link className="footer-link-item" to="/https://www.twitter.com"><i className="bi bi-twitter"></i></Link></li>
+                <li><Link className="footer-link-item" to="/https://www.facebook.com"><i className="bi bi-facebook"></i></Link></li>
+                <li><Link className="footer-link-item" to="/https://www.linkedin.comr"><i className="bi bi-linkedin"></i></Link></li>
               </ul>
             </div>
           </div>
