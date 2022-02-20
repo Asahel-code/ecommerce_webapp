@@ -28,6 +28,10 @@ header {
  }
 }
 
+.toggle-btn{
+  display: none;
+}
+
 .logout-btn{
   padding: 0.5em 1.0em;
   background: $danger;
@@ -39,6 +43,26 @@ header {
   background: $dangerLight;
 }
 
+@media all and (max-width: 992px){
+  .logo {
+    h1 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 30px;
+   }
+   span {
+     display: none;
+   }
+  }
+
+  .switch_btn{
+    color: $secondary;
+  }
+
+  .toggle-btn{
+    display: block;
+  }
+}
 
 
 

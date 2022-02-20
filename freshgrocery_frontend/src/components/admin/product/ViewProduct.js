@@ -8,7 +8,7 @@ const ViewProduct = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
 
-    document.title = "Freshgrocery | View product";
+    document.title = "View product | Freshgrocery";
     axios.get('/api/view-product').then(res => {
       if (res.data.status === 200) {
         //console.log(res.data.products);

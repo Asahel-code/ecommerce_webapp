@@ -11,8 +11,6 @@ const Signup = () => {
 
   // variables
   const [registerInput, setRegister] = useState({
-    firstname: "",
-    lastname: "",
     username: "",
     email: "",
     password: "",
@@ -43,8 +41,6 @@ const Signup = () => {
     e.preventDefault();
 
     const data = {
-      firstname: registerInput.firstname,
-      lastname: registerInput.lastname,
       username: registerInput.username,
       email: registerInput.email,
       password: registerInput.password,
@@ -96,26 +92,6 @@ const Signup = () => {
           <div className="d-flex justify-content-center align-items-center">
             <div className="card-body">
               <form onSubmit={handleSubmit}>
-                <div className="form-group row py-3">
-                  <label htmlFor="firstname" className="col-md-4 col-form-label text-md-right">First Name</label>
-
-                  <div className="col-md-8">
-                    <input id="firstname" type="text" className="form-control" name="firstname" value={registerInput.firstname} onChange={handleInput} />
-
-                    <span className="text-danger">{registerInput.error_list.firstname}</span>
-                  </div>
-                </div>
-
-                <div className="form-group row py-3">
-                  <label htmlFor="lastname" className="col-md-4 col-form-label text-md-right">Last Name</label>
-
-                  <div className="col-md-8">
-                    <input id="lastname" type="text" className="form-control" name="lastname" value={registerInput.lastname} onChange={handleInput} />
-
-                    <span className="text-danger">{registerInput.error_list.lastname}</span>
-                  </div>
-                </div>
-
                 <div className="form-group row py-3">
                   <label htmlFor="username" className="col-md-4 col-form-label text-md-right">Username</label>
 

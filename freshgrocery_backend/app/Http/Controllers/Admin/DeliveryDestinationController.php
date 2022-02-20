@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\DeliveryDestination;
 
 class DeliveryDestinationController extends Controller
 {
@@ -14,17 +16,22 @@ class DeliveryDestinationController extends Controller
      */
     public function index()
     {
-        //
+       $destination = DeliveryDestination::all();
+        return response()->json([
+            'status' => 200,
+            'destination' =>$destination,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function allDestination()
     {
-        //
+        
+       $destination = DeliveryDestination::all();
+        return response()->json([
+            'status' => 200,
+            'destination' =>$destination,
+        ]);
     }
 
     /**
@@ -35,7 +42,24 @@ class DeliveryDestinationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:191',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages()
+            ]);
+        } else {
+           $destination = new DeliveryDestination;
+           $destination->name = $request->input('name');
+           $destination->save();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Destination added successfully'
+            ]);
+        }
     }
 
     /**
@@ -57,7 +81,21 @@ class DeliveryDestinationController extends Controller
      */
     public function edit($id)
     {
-        //
+       $destination = DeliveryDestination::find($id);
+        if($destination)
+        {
+            return response()->json([
+                'status' => 200,
+                'destination' =>$destination
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No destination found'
+            ]);
+        }
     }
 
     /**
@@ -69,7 +107,35 @@ class DeliveryDestinationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:191',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validator->messages()
+            ]);
+        } else {
+           $destination = DeliveryDestination::find($id);
+            if($destination) 
+            {
+               $destination->name = $request->input('name');
+               $destination->save();
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Destination updated successfully'
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Destination not found'
+                ]);
+            }
+           
+        }
     }
 
     /**
@@ -80,6 +146,21 @@ class DeliveryDestinationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destination = DeliveryDestination::find($id);
+        if($destination)
+        {
+            $destination->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Destination deleted successfully'
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Destination not found'
+            ]);
+        }
     }
 }

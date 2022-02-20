@@ -33,6 +33,10 @@ header {
   color: #00634e;
 }
 
+.toggle-btn {
+  display: none;
+}
+
 .logout-btn {
   padding: 0.5em 1.0em;
   background: #753900;
@@ -43,5 +47,22 @@ header {
 
 .logout-btn:hover {
   background: #9e5613;
+}
+
+@media all and (max-width: 992px) {
+  .logo h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .logo span {
+    display: none;
+  }
+  .switch_btn {
+    color: #00634e;
+  }
+  .toggle-btn {
+    display: block;
+  }
 }
 /*# sourceMappingURL=Navbar.css.map */
