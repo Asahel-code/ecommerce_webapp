@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const OrderList = () => {
 
@@ -28,11 +28,12 @@ const OrderList = () => {
                 <tr key={order.id}>
                     <td>{order.id}</td>
                     <td>{order.tracking_no}</td>
+                    <td>{order.payment_id}</td>
                     <td>{order.contact_no}</td>
                     <td>{order.email}</td>
-                    <td>
+                    {/* <td>
                         <Link className="btn btn-success btn-sm" to={`view-order/${order.id}`}>View</Link>
-                    </td>
+                    </td> */}
                 </tr>
             )
         });
@@ -51,9 +52,9 @@ const OrderList = () => {
                             <tr>
                                 <th>Id</th>
                                 <th>tracking no</th>
+                                <th>Payment id</th>
                                 <th>Phone</th>
                                 <th>Email</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

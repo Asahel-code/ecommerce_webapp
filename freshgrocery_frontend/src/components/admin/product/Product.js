@@ -61,6 +61,8 @@ const Product = () => {
     formData.append('quantity', productInput.quantity);
     formData.append('status', checkbox.status ? '1' : '0');
 
+    console.log(formData)
+
     axios.post('/api/store-product', formData).then(res => {
       if(res.data.status === 200)
       {

@@ -41,8 +41,9 @@ class CheckoutController extends Controller
                 $order->contact_no = $request->input('contact_no');
                 $order->destination_id = $request->input('destination_id');
 
-                $order->payment_mode = 'COD';
-                $order->tracking_no = 'kkcom'.rand(1111, 9999);
+                $order->payment_mode = $request->payment_mode;
+                $order->payment_id = $request->payment_id;
+                $order->tracking_no = 'freshgrocerycom'.rand(1111, 9999);
                 $order->save();
             
 

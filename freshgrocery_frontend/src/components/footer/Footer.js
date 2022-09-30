@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="col-md-12 d-flex justify-content-center align-items-center py-3">
           <div>
-            <span>P.O. Box 00347, 00310 Nyeri</span>
+            <span>P.O. Box 00347, 00310 Kikuyu</span>
           </div>
         </div>
 
@@ -35,7 +35,7 @@ const Footer = () => {
             <span>&copy; 2022 All copyright reserved, Freshgrocery Ltd</span>
           </div>
           <div className="col-md-6 text-center">
-            <span>We accept payment through Mpesa</span>
+            <span>We accept payment through Paypal</span>
           </div>
         </div>
       </div>

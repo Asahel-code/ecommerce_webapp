@@ -66,13 +66,13 @@ const Cart = () => {
     });
   }
 
-  const deleteCartItem = (e, card_id) => {
+  const deleteCartItem = async (e, card_id) => {
     e.preventDefault();
 
     const thisClicked = e.currentTarget;
     thisClicked.innerText = "Removing";
 
-    axios.delete(`/api/delete-cartItem/${card_id}`).then(res => {
+    await axios.delete(`/api/delete-cartItem/${card_id}`).then(res => {
       if (res.data.status === 200) {
         swal('Success', res.data.message, 'success');
         thisClicked.closest("tr").remove();

@@ -1,6 +1,6 @@
 import Dashboard  from '../components/admin/Dashboard';
 import Profile from '../components/admin/Profile';
-import OrderList from '../components/admin/product/order/OrderList';
+import OrderList from '../components/admin/order/OrderList';
 import Category from '../components/admin/category/Category';
 import ViewCategory from '../components/admin/category/ViewCategory';
 import EditCategory from '../components/admin/category/EditCategory';

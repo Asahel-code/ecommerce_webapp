@@ -35,6 +35,7 @@ Route::get('cart', [CartController::class, 'index']);
 Route::post('add-to-cart', [CartController::class, 'store']);
 Route::put('cart-quantityUpdate/{card_id}/{scope}', [CartController::class, 'update']);
 Route::delete('delete-cartItem/{card_id}', [CartController::class, 'destroy']);
+Route::get('get-cart-count', [CartController::class, 'cartCount']);
 
 //Order
 Route::get('admin/orders', [OrderController::class, 'index']);

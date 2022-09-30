@@ -33,7 +33,6 @@ const Product = (props) => {
     });
 
 
-
     return () => {
       isMounted = false;
     }
@@ -51,11 +50,22 @@ const Product = (props) => {
       showProducts = product.map((item, idx) => {
         return (
           <div className="col-md-3 my-3" key={item.id}>
-            <Link to={`/${item.category.slug}/${item.slug}`}>
+            <Link className="text-decoration-none" to={`/${item.category.slug}/${item.slug}`}>
               <div className="card">
                 <img src={`http://127.0.0.1:8000/${item.image}`} className="card-img-top" alt={item.name} height="200" />
                 <div className="card-body">
-                  <h5>{item.name}</h5>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <h5 className="text-center product-name">{item.name}</h5>
+                    </div>
+                    <div className="col-md-12 product-price">
+                      <s className="ms-2">kes:  {item.original_price}</s>
+                      <h4 className="mb-1">
+                        kes :  {item.selling_price}
+                      </h4>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </Link>

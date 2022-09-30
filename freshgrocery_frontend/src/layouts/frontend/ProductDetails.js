@@ -113,7 +113,7 @@ const ProductDetails = (props) => {
     <div className="container my-5">
       <div className="row">
         <div className="col-md-4 border-end">
-          <img className="w-100" src={`http://127.0.0.1:8000/${product.image}`} alt="product" />
+          <img className="w-100" src={`http://127.0.0.1:8000/${product.image}`} alt="product" height="230px"/>
         </div>
         <div className="col-md-8">
           <h4>
@@ -128,7 +128,7 @@ const ProductDetails = (props) => {
             {availableStock}
           </div>
 
-          <button type="button" className="btn btn-danger mt-3">Add to Wishlist</button>
+          {/* <button type="button" className="btn btn-danger mt-3">Add to Wishlist</button> */}
         </div>
       </div>
     </div>

@@ -36,4 +36,16 @@ body {
   color: #2b7216;
   border-bottom: 3px solid #2b7216;
 }
+
+.product-name {
+  color: #292929;
+}
+
+.product-price s {
+  color: #585858fa;
+}
+
+.product-price h4 {
+  color: #292929;
+}
 /*# sourceMappingURL=App.css.map */

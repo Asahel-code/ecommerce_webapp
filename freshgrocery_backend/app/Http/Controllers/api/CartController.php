@@ -117,16 +117,12 @@ class CartController extends Controller
      */
     public function update($card_id, $scope)
     {
-        if (auth('sanctum')->check()) 
-        {
+        if (auth('sanctum')->check()) {
             $user_id = auth('sanctum')->user()->id;
             $cartItem = Cart::where('id', $card_id)->where('user_id', $user_id)->firstOrFail();
-            if($scope == 'inc')
-            {
-                $cartItem->quantity_id += 1; 
-            }
-            else if($scope == 'dec')
-            {
+            if ($scope == 'inc') {
+                $cartItem->quantity_id += 1;
+            } else if ($scope == 'dec') {
                 $cartItem->quantity_id -= 1;
             }
             $cartItem->update();
@@ -135,10 +131,7 @@ class CartController extends Controller
                 'status' => 200,
                 'message' => 'Quantity updated'
             ]);
-
-        }
-        else
-        {
+        } else {
             return response()->json([
                 'status' => 401,
                 'message' => 'Login to continue'
@@ -154,33 +147,41 @@ class CartController extends Controller
      */
     public function destroy($card_id)
     {
-        if (auth('sanctum')->check()) 
-        {
+        if (auth('sanctum')->check()) {
             $user_id = auth('sanctum')->user()->id;
             $cartItem = Cart::where('id', $card_id)->where('user_id', $user_id)->firstOrFail();
 
-            if($cartItem)
-            {
+            if ($cartItem) {
                 $cartItem->delete();
                 return response()->json([
                     'status' => 200,
                     'message' => 'Cart item removed successfully'
                 ]);
-
-            }
-            else
-            {
+            } else {
                 return response()->json([
                     'status' => 404,
                     'message' => 'Cart item not found'
                 ]);
             }
-        }
-        else
-        {
+        } else {
             return response()->json([
                 'status' => 401,
                 'message' => 'Login to continue'
+            ]);
+        }
+    }
+
+    public function cartCount()
+    {
+        if (auth('sanctum')->check()) 
+        {
+            $user_id = auth('sanctum')->user()->id;
+
+             $cart = Cart::where('user_id', $user_id)->get();
+             $cartCount = $cart->count();
+             return response()->json([
+                'status' => 200,
+                'cartCount' => $cartCount
             ]);
         }
     }

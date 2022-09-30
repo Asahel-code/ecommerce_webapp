@@ -15,15 +15,14 @@ const AboutProduct = () => {
                 <div className="d-flex justify-content-center align-items-center py-4">
                     <div className="col-md-8 ">
                     <p className="fw-bold fs-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisi lectus,
-                        ornare vel tortor nec, porta laoreet metus. Curabitur malesuada purus risus,
-                        in porta urna venenatis sed. Donec ac massa in enim tristique ultricies.
-                        Nam rutrum diam vitae tortor hendrerit, a viverra nulla egestas.
-                        Nunc ac nisi non nibh posuere commodo a nec lorem. Suspendisse eget arcu sit amet
-                        ante efficitur cursus et quis odio. Etiam vel turpis varius, suscipit erat eget, facilisis ante.
-                        Phasellus dui risus, vulputate at sem nec, scelerisque imperdiet nunc. Vestibulum scelerisque non
-                        eros tincidunt malesuada. Cras volutpat diam eu porttitor iaculis. Vivamus viverra placerat libero,
-                        id luctus sem venenatis eget.
+                        Our products include vegetables, Fruits, legumes an cereals. 
+                        For the vegetables and fruits we havest the some few minutes 
+                        before delivery, if your delivery distance is long we will user
+                        various presevation method like plastic bags and placing them in
+                        the refrigirator. As for the legumes and cereals it always be havested
+                        some days before delivery and delivered to your desired location. All our
+                        products stay fresh for a long time even after delivery depending on your 
+                        methods of preservation.
                     </p>
                     </div>
                     

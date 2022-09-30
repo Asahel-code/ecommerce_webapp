@@ -41,6 +41,23 @@ const Navbar = () => {
         });
     }
 
+    // useEffect(() => {
+    //     let isMounted = true;
+
+    //     axios.get('/api/get-cart-count').then(res => {
+    //         if (isMounted) {
+    //             if (res.data.status === 200) {
+    //                 setCount(res.data.cartCount);
+    //                 console.log(res.data.cartCount);
+    //             }
+    //         }
+    //     });
+
+    //     return () => {
+    //         isMounted = false;
+    //     }
+    // });
+
     var screenSize = ScreenListener();
 
     const collapse = () => {
@@ -98,7 +115,7 @@ const Navbar = () => {
             <ul>
                 <li>
                     <Link onClick={() => setCurLink("profile")}
-                        className={hoverLink.type === "profile" ? `${hoverLink.style} link-item text-capitalize` : "link-item text-capitalize"} to="/profile">{user}
+                        className={hoverLink.type === "profile" ? `${hoverLink.style} link-item text-capitalize` : "link-item text-capitalize"} to="#">{user}
                     </Link>
                 </li>
                 <li>
